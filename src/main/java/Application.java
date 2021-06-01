@@ -12,16 +12,16 @@ public class Application {
         double c = scanner.nextDouble();
 
         if (a != 0) {
-            if (a != 0 & b != 0 & c != 0) {
+            if (a != 0 && b != 0 & c != 0) {
                 allNumbers(a, b, c);
             }
-            if (b == 0 & c == 0) {
+            if (b == 0 && c == 0) {
                 System.out.println(Arrays.toString(new double[]{0}));
             }
-            if (b != 0 & c == 0) {
+            if (b != 0 && c == 0) {
                 System.out.println(Arrays.toString(notNumberC(a, b)));
             }
-            if (b == 0 & c != 0) {
+            if (b == 0 && c != 0) {
                 System.out.println(Arrays.toString(notNumberB(a, c)));
             }
 
@@ -50,15 +50,12 @@ public class Application {
     public static void allNumbers(double a, double b, double c) {
         if (discriminant(a, b, c) > 0) {
             System.out.println(Arrays.toString(twoRoots(a, b, c)));
-            System.out.println(discriminant(a, b, c));
         }
         if (discriminant(a, b, c) < 0) {
             System.out.println(Arrays.toString(noRoots()));
-            System.out.println(discriminant(a, b, c));
         }
         if (discriminant(a, b, c) == 0) {
             System.out.println(Arrays.toString(oneRoot(a, b, c)));
-            System.out.println(discriminant(a, b, c));
         }
     }
 
