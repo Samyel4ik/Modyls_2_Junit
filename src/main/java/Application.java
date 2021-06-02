@@ -11,26 +11,31 @@ public class Application {
         System.out.print("c -");
         double c = scanner.nextDouble();
 
-        if (a != 0) {
-            if (a != 0 && b != 0 & c != 0) {
-                allNumbers(a, b, c);
-            }
-            if (b == 0 && c == 0) {
-                System.out.println(Arrays.toString(new double[]{0}));
-            }
-            if (b != 0 && c == 0) {
-                System.out.println(Arrays.toString(notNumberC(a, b)));
-            }
-            if (b == 0 && c != 0) {
-                System.out.println(Arrays.toString(notNumberB(a, c)));
-            }
+        System.out.println(Arrays.toString(arrayRoots(a, b, c)));
 
-        } else {
-            System.out.println("переменная А должна быть больше 0");
-        }
     }
 
-    public static double[] notNumberB(double a, double c) {
+    public static double[] arrayRoots(double a, double b, double c) {
+        if (a != 0) {
+            if (a != 0 && b != 0 & c != 0) {
+                return allNumbers(a, b, c);
+            }
+            if (b == 0 && c == 0) {
+                return new double[]{0};
+            }
+            if (b != 0 && c == 0) {
+                return notNumberC(a, b);
+            }
+            if (b == 0 && c != 0) {
+                return notNumberB(a, c);
+            }
+        } else {
+            System.out.println("Переменная А, в уравнении, не должна равняться 0");
+        }
+        return new double[0];
+    }
+
+    public static double[] notNumberB(double a, double c) {         //не все переменные есть
         double num = -(c / a);
         if (num > 0) {
             double root1 = Math.sqrt(num);
@@ -47,16 +52,17 @@ public class Application {
         return new double[]{root1, root2};
     }
 
-    public static void allNumbers(double a, double b, double c) {
+    public static double[] allNumbers(double a, double b, double c) {   //все переменные есть
         if (discriminant(a, b, c) > 0) {
-            System.out.println(Arrays.toString(twoRoots(a, b, c)));
+            return twoRoots(a, b, c);
         }
         if (discriminant(a, b, c) < 0) {
-            System.out.println(Arrays.toString(noRoots()));
+            return noRoots();
         }
         if (discriminant(a, b, c) == 0) {
-            System.out.println(Arrays.toString(oneRoot(a, b, c)));
+            return oneRoot(a, b, c);
         }
+        return new double[0];
     }
 
     public static double discriminant(double a, double b, double c) {
