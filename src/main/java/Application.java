@@ -30,9 +30,13 @@ public class Application {
                 return notNumberB(a, c);
             }
         } else {
-            System.out.println("Переменная А, в уравнении, не должна равняться 0");
+            printMessage();
         }
         return new double[0];
+    }
+
+    public static void printMessage() {
+        System.out.println("Переменная А, в уравнении, не должна равняться 0");
     }
 
     public static double[] notNumberB(double a, double c) {         //не все переменные есть
