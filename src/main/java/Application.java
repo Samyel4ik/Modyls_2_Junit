@@ -11,46 +11,46 @@ public class Application {
         System.out.print("c -");
         double c = scanner.nextDouble();
 
-        System.out.println(Arrays.toString(arrayRoots(a, b, c)));
-
+        if (a != 0) {
+            System.out.println(Arrays.toString(arrayRoots(a, b, c)));
+        } else {
+            System.out.println("Переменная А, в уравнении, не должна равняться 0");
+        }
     }
 
     public static double[] arrayRoots(double a, double b, double c) {
-        if (a != 0) {
-            if (a != 0 && b != 0 & c != 0) {
-                return allNumbers(a, b, c);
-            }
-            if (b == 0 && c == 0) {
-                return new double[]{0};
-            }
-            if (b != 0 && c == 0) {
-                return notNumberC(a, b);
-            }
-            if (b == 0 && c != 0) {
-                return notNumberB(a, c);
-            }
-        } else {
-            printMessage();
+
+        if (a != 0 && b != 0 & c != 0) {
+            return allNumbers(a, b, c);
+        }
+        if (b == 0 && c == 0) {
+            return new double[]{0};
+        }
+        if (b != 0 && c == 0) {
+            return notNumberC(a, b);
+        }
+        if (b == 0 && c != 0) {
+            return notNumberB(a, c);
         }
         return new double[0];
-    }
-
-    public static void printMessage() {
-        System.out.println("Переменная А, в уравнении, не должна равняться 0");
     }
 
     public static double[] notNumberB(double a, double c) {         //не все переменные есть
         double num = -(c / a);
         if (num > 0) {
-            double root1 = Math.sqrt(num);
-            double root2 = -(Math.sqrt(num));
-            return new double[]{root1, root2};
+            return notNumberB1(a,c);
         } else {
-            return new double[]{0};
+            return new double[0];
         }
     }
+    public static double[] notNumberB1(double a, double c) {
+        double num = -(c / a);
+        double root1 = Math.sqrt(num);
+        double root2 = -(Math.sqrt(num));
+        return new double[]{root1, root2};
+    }
 
-    public static double[] notNumberC(double a, double b) {
+        public static double[] notNumberC(double a, double b) {
         double root1 = 0;
         double root2 = -(b / a);
         return new double[]{root1, root2};
