@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        System.out.println(5.6 + 5.8);
         Scanner scanner = new Scanner(System.in);
         System.out.print("a -");
         double a = scanner.nextDouble();
@@ -20,7 +21,7 @@ public class Application {
 
     public static double[] arrayRoots(double a, double b, double c) {
 
-        if (a != 0 && b != 0 & c != 0) {
+        if (b != 0 & c != 0) {
             return allNumbers(a, b, c);
         }
         if (b == 0 && c == 0) {
@@ -38,11 +39,12 @@ public class Application {
     public static double[] notNumberB(double a, double c) {         //не все переменные есть
         double num = -(c / a);
         if (num > 0) {
-            return notNumberB1(a,c);
+            return notNumberB1(a, c);
         } else {
             return new double[0];
         }
     }
+
     public static double[] notNumberB1(double a, double c) {
         double num = -(c / a);
         double root1 = Math.sqrt(num);
@@ -50,7 +52,7 @@ public class Application {
         return new double[]{root1, root2};
     }
 
-        public static double[] notNumberC(double a, double b) {
+    public static double[] notNumberC(double a, double b) {
         double root1 = 0;
         double root2 = -(b / a);
         return new double[]{root1, root2};
@@ -73,6 +75,7 @@ public class Application {
         return Math.pow(b, 2) - 4 * a * c;
     }
 
+
     public static double[] twoRoots(double a, double b, double c) {
         double roots1 = (-b + Math.sqrt(discriminant(a, b, c))) / 2 * a;
         double roots2 = (-b - Math.sqrt(discriminant(a, b, c))) / 2 * a;
@@ -81,7 +84,7 @@ public class Application {
     }
 
     public static double[] noRoots() {
-        return new double[]{0};
+        return new double[0];
     }
 
     public static double[] oneRoot(double a, double b, double c) {
